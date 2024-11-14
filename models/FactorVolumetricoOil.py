@@ -5,11 +5,11 @@ def correlacion_standing(Rs, gamma_g, gamma_o, T,API):
     Parameters
     Rs: Solubilidad del gas en scf/bbl.
     gamma_g: Gravedad específica del gas en solución.
-    gamma_o: Gravedad especifica del crudo en superficie;
+    gamma_o: Gravedad especifica del crudo en superficie.
     T: Temperatura del sistema en °R (Rankine).
     ------
     return:
-    Bo = factor volumetrico del petroleo
+    Bo = factor volumetrico del petroleo BY/BN
     ----------
     """
     gamma_o = 141.5/(API+131.5)
