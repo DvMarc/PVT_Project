@@ -41,5 +41,4 @@ def correlacion_VasquezyBeggs (Rs, T, API, gamma_gs):
     # Ecuación de Vásquez y Beggs
     Bo = 1.0 + C1*Rs + (T-520)*(API/gamma_gs)*(C2+C3*Rs)
 
-
     return Bo
