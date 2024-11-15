@@ -1,3 +1,6 @@
+import math
+import models.utils as utils
+
 def presion_burbuja_standing(Rs, T, API):
     """
     Calcula la presión de burbuja (pb) utilizando la correlación de Standing.
@@ -18,7 +21,7 @@ def presion_burbuja_standing(Rs, T, API):
     return pb
 
 
-def presion_burbuja_vasquez_beggs(Rs, T, gamma_gs, API):
+def presion_burbuja_vasquez_beggs(Rs, T, gamma_g, API, T_sep=520.0, p_sep= 114.8):
     """
     Calcula la presión de burbuja (pb) utilizando la correlación de Vásquez y Beggs.
 
@@ -31,6 +34,10 @@ def presion_burbuja_vasquez_beggs(Rs, T, gamma_gs, API):
     Retorna:
     - pb: Presión de burbuja en lpc.
     """
+
+    # Ajustar la gravedad específica del gas basada en el separador
+    gamma_gs = utils.gravedad_especifica_ajustada(gamma_g, API, T_sep, p_sep)
+
     # Coeficientes según el rango de API
     if API <= 30:
         C1, C2, C3 = 27.624, 0.914328, 11.172

@@ -1,5 +1,5 @@
 import math
-
+import models.utils as utils
 
 def correlacion_standing(Bo, gamma_o, Rs, gamma_g,Co,p):
     """
@@ -23,7 +23,7 @@ def correlacion_standing(Bo, gamma_o, Rs, gamma_g,Co,p):
 
     return Do
 
-def correlacion_VasquezyBeggs(Dob, p, pb, Rs, T, gamma_gs, API):
+def correlacion_VasquezyBeggs(Dob, p, pb, Rs, T, gamma_g, API, T_sep=520.0, p_sep= 114.8):
     """
     Calcular el factor volumetrico del petroleo
 
@@ -40,6 +40,7 @@ def correlacion_VasquezyBeggs(Dob, p, pb, Rs, T, gamma_gs, API):
     Do = Densidad del petroleo lb/ft^3
     ----------
     """
+    gamma_gs = utils.gravedad_especifica_ajustada(gamma_g, API, T_sep, p_sep)
     #Densidad del petroleo by Standing
     A= (10**-5)*(-1433+5*Rs+17.2*(T-460)-1180*gamma_gs+12.61*API)
     #logaritmo natutal

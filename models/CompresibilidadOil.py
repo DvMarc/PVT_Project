@@ -1,3 +1,5 @@
+import models.utils as utils
+
 def correlacion_VasquezyBeggs(Rs, T, gamma_gs, API, p):
     """
     Calcular el factor volumetrico del petroleo
