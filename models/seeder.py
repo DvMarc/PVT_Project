@@ -27,11 +27,12 @@ def generate_data_with_scipy(num_samples=100, seed=None):
         "SG_g": norm.rvs(loc=0.75, scale=0.05, size=num_samples, random_state=seed),  # Normal para gamma_gs
         "lpca": np.concatenate([
             uniform.rvs(loc=2500, scale=600, size=half_samples_lower, random_state=seed),  # Rango [2500, 3100]
-            uniform.rvs(loc=3100, scale=2400, size=half_samples_upper, random_state=seed)  # Rango [3100, 5500]
+            uniform.rvs(loc=2500, scale=600, size=half_samples_lower, random_state=seed)  # Rango [3100, 5500]
         ]),  # Uniform para lpca
+        "lpca_nob":uniform.rvs(loc=2500, scale=600, size=num_samples, random_state=seed),
+        "lpca_b":uniform.rvs(loc=2500, scale=600, size=num_samples, random_state=seed),
     }
 
-    # Limitar valores dentro de un rango si es necesario
     data["Rs"] = np.clip(data["Rs"], 100, 800)          # Limitar Rs entre 100 y 800
     data["SG_g"] = np.clip(data["SG_g"], 0.6, 0.9)      # Limitar gamma_gs entre 0.6 y 0.9
 
